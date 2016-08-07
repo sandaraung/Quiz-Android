@@ -16,14 +16,14 @@ import java.io.IOException;
  */
 
 public class JsonParser {
-    private static final String MAIN_URL = "http://192.168.100.9:3000/";
+//    private static final String MAIN_URL = "http://192.168.100.9:3000/";
     private static Response response;
     public static final String TAG = "TAG";
 
-    public static JSONObject getData() {
+    public static JSONObject getData(String url) {
         try {
             OkHttpClient okHttpClient = new OkHttpClient();
-            Request request = new Request.Builder().url(MAIN_URL).build();
+            Request request = new Request.Builder().url(url).build();
             response = okHttpClient.newCall(request).execute();
             String responseBody = response.body().string();
             JSONObject jo = new JSONObject(responseBody);

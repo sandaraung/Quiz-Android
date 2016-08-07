@@ -18,13 +18,12 @@ import java.util.List;
 public class ListviewAdapter extends ArrayAdapter {
     Context context;
     List<Category> models;
+    int[] bgCategory={R.drawable.yangon,R.drawable.it,R.drawable.japan};
 
     public ListviewAdapter(Context context, List<Category> models) {
         super(context, R.layout.category, models);
         this.context = context;
         this.models = models;
-
-
     }
 
     @Override
@@ -33,7 +32,7 @@ public class ListviewAdapter extends ArrayAdapter {
 
         TextView tv = (TextView) convertView.findViewById(R.id.categorytxt);
         tv.setText(models.get(position).getName());
-
+        tv.setBackgroundResource(bgCategory[position]);
         return convertView;
     }
 }

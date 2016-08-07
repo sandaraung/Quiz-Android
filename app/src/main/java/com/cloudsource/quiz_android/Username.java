@@ -10,12 +10,10 @@ import android.widget.EditText;
 
 public class Username extends AppCompatActivity {
 
-
     EditText username;
     Button enter;
     String name;
-    public static final String MyPREFERENCES = "MyPrefs" ;
-
+    public static final String MyPREFERENCES = "MyPrefs";
     public static final String UserName = "username";
 
     @Override
@@ -23,17 +21,12 @@ public class Username extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.username_activity);
 
-
-
-        username = (EditText)findViewById(R.id.editText);
-
-        enter = (Button)findViewById(R.id.button);
-
-
+        username = (EditText) findViewById(R.id.editText);
+        enter = (Button) findViewById(R.id.button);
 
         name = username.getText().toString();
 
-        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES,0);
+        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, 0);
 
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putString(UserName, name);
@@ -43,21 +36,10 @@ public class Username extends AppCompatActivity {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
-//                Intent i = new Intent();
-//                startActivity(i);
-
-
+                startActivity(new Intent(getApplicationContext(), GetJson.class));
 
             }
         });
-
-
-
-
-
 
 
     }
