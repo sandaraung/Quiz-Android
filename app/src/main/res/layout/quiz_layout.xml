@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="151dp"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="28dp"
+        android:id="@+id/questiontxt" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questiontxt"
+        android:layout_alignRight="@+id/questiontxt"
+        android:layout_alignEnd="@+id/questiontxt"
+        android:layout_marginTop="87dp"
+        android:id="@+id/answerone" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerone"
+        android:layout_alignLeft="@+id/answerone"
+        android:layout_alignStart="@+id/answerone"
+        android:layout_marginTop="44dp"
+        android:id="@+id/answertwo" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answertwo"
+        android:layout_alignRight="@+id/answertwo"
+        android:layout_alignEnd="@+id/answertwo"
+        android:layout_marginTop="54dp"
+        android:id="@+id/answerthree" />
+
+    <Button
+        android:background="@drawable/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:foregroundGravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/next" />
+</RelativeLayout>
