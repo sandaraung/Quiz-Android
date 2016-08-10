@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.cloudsource.quiz_android.model.Category;
 import com.cloudsource.quiz_android.model.CategoryModel;
@@ -23,9 +22,7 @@ import java.util.List;
 
 public class GetJson extends AppCompatActivity {
     ListView lv;
-    String url = "http://192.168.100.9:3000/";
-
-    String urlquiz = "https://raw.githubusercontent.com/AyeMyaThu/WorkShop-Android/master/quiz.json";
+    String url = "https://blooming-depths-53477.herokuapp.com/categories/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +36,7 @@ public class GetJson extends AppCompatActivity {
         request.execute();
     }
 
-    public class requestToJson extends AsyncTask<String, Void, Boolean> {
+    private class requestToJson extends AsyncTask<String, Void, Boolean> {
         CategoryModel categorymodel;
         String urlstr;
 
@@ -99,7 +96,7 @@ public class GetJson extends AppCompatActivity {
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    startActivity(new Intent(getApplicationContext(),QuizShow.class));
+                    startActivity(new Intent(getApplicationContext(), QuizShow.class));
                 }
             });
         }

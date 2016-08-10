@@ -16,20 +16,17 @@ public class QuizModel {
     private List<Quiz> quiz = new ArrayList<Quiz>();
 
     /**
-     *
-     * @return
-     * The quiz
+     * @return The quiz
      */
     public List<Quiz> getQuiz() {
         return quiz;
     }
 
     /**
-     *
-     * @param quiz
-     * The quiz
+     * @param quiz The quiz
      */
     public void setQuiz(List<Quiz> quiz) {
         this.quiz = quiz;
     }
+
 }

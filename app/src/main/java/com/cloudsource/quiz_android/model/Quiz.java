@@ -25,74 +25,59 @@ public class Quiz {
     private Integer collect;
 
     /**
-     *
-     * @return
-     * The id
+     * @return The id
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     *
-     * @param id
-     * The id
+     * @param id The id
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     *
-     * @return
-     * The question
+     * @return The question
      */
     public String getQuestion() {
         return question;
     }
 
     /**
-     *
-     * @param question
-     * The question
+     * @param question The question
      */
     public void setQuestion(String question) {
         this.question = question;
     }
 
     /**
-     *
-     * @return
-     * The answers
+     * @return The answers
      */
     public List<String> getAnswers() {
         return answers;
     }
 
     /**
-     *
-     * @param answers
-     * The answers
+     * @param answers The answers
      */
     public void setAnswers(List<String> answers) {
         this.answers = answers;
     }
 
     /**
-     *
-     * @return
-     * The collect
+     * @return The collect
      */
     public Integer getCollect() {
         return collect;
     }
 
     /**
-     *
-     * @param collect
-     * The collect
+     * @param collect The collect
      */
     public void setCollect(Integer collect) {
         this.collect = collect;
     }
+
 }
