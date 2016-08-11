@@ -23,9 +23,6 @@ import java.util.List;
 
 public class GetJson extends AppCompatActivity {
     ListView lv;
-    String url = "http://192.168.100.9:3000/";
-
-    String urlquiz = "https://raw.githubusercontent.com/AyeMyaThu/WorkShop-Android/master/quiz.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +31,33 @@ public class GetJson extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.listview);
 
-        requestToJson request = new requestToJson();
-        request.setUrl(url);
+        requestToJson request = new requestToJson() {
+            @Override
+            protected void onPostExecute(final CategoryModel categoryModel) {
+                ListviewAdapter adapter = new ListviewAdapter(getApplicationContext(), categorymodel.getCategories());
+                lv.setAdapter(adapter);
+
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Category category = categoryModel.getCategories().get(i);
+                        Intent intent = new Intent(getApplicationContext(),QuizShow.class);
+                        intent.putExtra("categoryName", category.getName());
+                        startActivity(intent);
+                    }
+                });
+            }
+        };
+        request.setUrl(Const.ENDPOINT+"/categories/");
         request.execute();
     }
 
-    public class requestToJson extends AsyncTask<String, Void, Boolean> {
+    public class requestToJson extends AsyncTask<String, Void, CategoryModel> {
         CategoryModel categorymodel;
         String urlstr;
 
         public String getUrl() {
-            return url;
+            return urlstr;
         }
 
         public void setUrl(String url) {
@@ -58,7 +71,7 @@ public class GetJson extends AppCompatActivity {
         }
 
         @Override
-        protected Boolean doInBackground(String... strings) {
+        protected CategoryModel doInBackground(String... strings) {
             JSONObject object = JsonParser.getData(urlstr);
 
             Log.i("mylog", "object" + object);
@@ -82,6 +95,7 @@ public class GetJson extends AppCompatActivity {
                     String result = categorymodel.getCategories().get(1).getName();
                     Log.i("mylog", result);
 
+                    return categorymodel;
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -92,16 +106,8 @@ public class GetJson extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(Boolean aBoolean) {
-            ListviewAdapter adapter = new ListviewAdapter(getApplicationContext(), categorymodel.getCategories());
-            lv.setAdapter(adapter);
+        protected void onPostExecute(CategoryModel cmodel) {
 
-            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    startActivity(new Intent(getApplicationContext(),QuizShow.class));
-                }
-            });
         }
     }
 }
