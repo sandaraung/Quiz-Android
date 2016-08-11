@@ -3,6 +3,8 @@ package com.cloudsource.quiz_android.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class Quiz {
     private String question;
     @SerializedName("answers")
     @Expose
-    private List<String> answers = new ArrayList<String>();
+    private JSONArray answers;
     @SerializedName("collect")
     @Expose
     private Integer collect;
@@ -65,7 +67,7 @@ public class Quiz {
      * @return
      * The answers
      */
-    public List<String> getAnswers() {
+    public JSONArray getAnswers() {
         return answers;
     }
 
@@ -74,7 +76,7 @@ public class Quiz {
      * @param answers
      * The answers
      */
-    public void setAnswers(List<String> answers) {
+    public void setAnswers(JSONArray answers) {
         this.answers = answers;
     }
 
